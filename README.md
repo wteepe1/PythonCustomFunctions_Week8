@@ -21,6 +21,13 @@ Custom functions are executed just like any core Python function. Simply type th
 
 `myNewFunction()`
 
+## In-Class Exercise 1
+
+```
+Try writing a function that will print out the simulated results of rolling two 6-sided die. Be sure to include a docstring
+explaining what the function does.
+```
+
 ## Function Arguments
 
 To make functions more flexible, they can be written to accept arguments. To do this, simply include a new variable name inside the parentheses when defining the function. Note that this variable name _only has meaning within the function's code_. More formally, we say that the scope of the variable is limited to the function.
@@ -46,6 +53,14 @@ def complexMathThing(numOne,numTwo,numThree):
     print( pow(numOne, numTwo) - numThree )
     
 complexMathThing(4,5,2)
+```
+
+## In-Class Exercise 2
+
+```
+Now, take the function you wrote in Exercise 1 and allow the user to provide different probabilities of 
+sampling for each side of the die. Assume the same probabilities apply to both die. You will probably want
+to use functions from the `random` library: https://docs.python.org/3/library/random.html
 ```
 
 ## Return Statements
