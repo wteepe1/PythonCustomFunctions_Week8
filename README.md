@@ -24,8 +24,9 @@ Custom functions are executed just like any core Python function. Simply type th
 ## In-Class Exercise 1
 
 ```
-Try writing a function that will print out the simulated results of rolling two 6-sided die. Be sure to include a docstring
-explaining what the function does.
+Try writing a function that will print out the simulated results of rolling two 6-sided die. Be sure to include a 
+docstring explaining what the function does. You will probably want to use functions from the `random` library: 
+https://docs.python.org/3/library/random.html
 ```
 
 ## Function Arguments
@@ -59,8 +60,8 @@ complexMathThing(4,5,2)
 
 ```
 Now, take the function you wrote in Exercise 1 and allow the user to provide different probabilities of 
-sampling for each side of the die. Assume the same probabilities apply to both die. You will probably want
-to use functions from the `random` library: https://docs.python.org/3/library/random.html
+sampling for each side of the die. Assume the same probabilities apply to both die. Take a closer look at
+functions available in the `random` library: https://docs.python.org/3/library/random.html
 ```
 
 ## Return Statements
@@ -83,6 +84,13 @@ By adding a `return` statement, we can save a value produced by the function `co
 ```
 print(myVar)
 myVar * 3
+```
+
+## In-Class Exercise 3
+
+```
+Now, take the function you wrote in Exercise 2 and return the outcomes of the die rolls as a tuple, rather
+than printing them. How does this change the behavior of the function?
 ```
 
 ## Optional Arguments
@@ -119,3 +127,10 @@ If we pass the function values for arguments in the same order as they're listed
 Note that we *always* have to provide a value for `numOne`, because it doesn't have a default. For example, what happens when you try this function call
 
 `complexMathThing(numTwo=5,numThree=1)`
+
+## In-Class Exercise 4
+
+```
+Now, take the function you wrote in Exercise 3 and make the probabilities an optional argument.
+```
+
