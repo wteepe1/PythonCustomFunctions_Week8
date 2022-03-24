@@ -86,6 +86,8 @@ print(myVar)
 myVar * 3
 ```
 
+Print will not allow you to save value as a variable. if you want answer stored in variable, you must use return
+
 ## In-Class Exercise 3
 
 ```
