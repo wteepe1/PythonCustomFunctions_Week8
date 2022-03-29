@@ -134,3 +134,7 @@ Note that we *always* have to provide a value for `numOne`, because it doesn't h
 Now, take the function you wrote in Exercise 3 and make the probabilities an optional argument.
 ```
 
+### Additional Resources
+
+- [Python Documentation on Defining Functions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)
+
