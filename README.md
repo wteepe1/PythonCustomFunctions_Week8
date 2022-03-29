@@ -134,7 +134,7 @@ Note that we *always* have to provide a value for `numOne`, because it doesn't h
 Now, take the function you wrote in Exercise 3 and make the probabilities an optional argument.
 ```
 
-### Custom Functions Can Call Each Other
+## Custom Functions Can Call Each Other
 
 Well structured code will assign distinct tasks to separate functions, in order to keep the code readable. What this means is that you can have some custom functions that are called to do complex tasks, but within these functions you can call other custom functions to take care of smaller tasks. By structuring the code in this hierarchical way, large tasks are broken down into increasingly smaller ones.
 
@@ -186,7 +186,7 @@ testSameAA("ATAACAAACAGC","ATCACCAATAGT",True)
 testSameAA("ATAACAAACAGC","ATCACCAAAAGT",True)
 ```
 
-### Lists as Arguments
+## Lists as Arguments
 
 Using a list as an argument for a function requires some extra thought. The value that's actually passed to the function when you include the list as an argument is the list's position in memory. This is called "passing by reference" and makes things a lot faster, because a program doesn't have to make a separate copy of all the values in the list to use inside the function. However, it means that **if you alter the list inside the function, its value will also be altered outside the function**.
 
@@ -217,7 +217,7 @@ print(myNum)
 ```
 
 
-### Additional Resources
+## Additional Resources
 
 - [Python Documentation on Defining Functions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)
 
