@@ -136,3 +136,90 @@ Note that we *always* have to provide a value for `numOne`, because it doesn't h
 Now, take the function you wrote in Exercise 3 and make the probabilities an optional argument.
 ```
 
+## Custom Functions Can Call Each Other
+
+Well structured code will assign distinct tasks to separate functions, in order to keep the code readable. What this means is that you can have some custom functions that are called to do complex tasks, but within these functions you can call other custom functions to take care of smaller tasks. By structuring the code in this hierarchical way, large tasks are broken down into increasingly smaller ones.
+
+```
+# Here is code to take two nucleotide sequences and see if they have the same amino acid
+# sequence.
+
+genCode = {
+    'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
+    'ACA':'T', 'ACC':'T', 'ACG':'T', 'ACT':'T',
+    'AAC':'N', 'AAT':'N', 'AAA':'K', 'AAG':'K',
+    'AGC':'S', 'AGT':'S', 'AGA':'R', 'AGG':'R',
+    'CTA':'L', 'CTC':'L', 'CTG':'L', 'CTT':'L',
+    'CCA':'P', 'CCC':'P', 'CCG':'P', 'CCT':'P',
+    'CAC':'H', 'CAT':'H', 'CAA':'Q', 'CAG':'Q',
+    'CGA':'R', 'CGC':'R', 'CGG':'R', 'CGT':'R',
+    'GTA':'V', 'GTC':'V', 'GTG':'V', 'GTT':'V',
+    'GCA':'A', 'GCC':'A', 'GCG':'A', 'GCT':'A',
+    'GAC':'D', 'GAT':'D', 'GAA':'E', 'GAG':'E',
+    'GGA':'G', 'GGC':'G', 'GGG':'G', 'GGT':'G',
+    'TCA':'S', 'TCC':'S', 'TCG':'S', 'TCT':'S',
+    'TTC':'F', 'TTT':'F', 'TTA':'L', 'TTG':'L',
+    'TAC':'Y', 'TAT':'Y', 'TAA':'_', 'TAG':'_',
+    'TGC':'C', 'TGT':'C', 'TGA':'_', 'TGG':'W'}
+
+def nucToAA(nucSeq):
+    """This function translates a DNA sequence into an amino acid sequence."""
+    
+    aaSeq = ""
+    for i in range(len(nucSeq))[::3]:
+        aaSeq = aaSeq + genCode[nucSeq.upper()[i:i+3]]
+    return aaSeq
+    
+def testSameAA(nucSeqOne,nucSeqTwo,printAASeqs=False):
+    """This function tests if two nucleotide sequences produce the same
+       amino acid sequence."""
+    
+    aaSeqOne = nucToAA(nucSeqOne)
+    aaSeqTwo = nucToAA(nucSeqTwo)
+    if printAASeqs:
+        print("First amino acid sequence: %s" % aaSeqOne)
+        print("Second amino acid sequence: %s" % aaSeqTwo)
+    return aaSeqOne == aaSeqTwo
+    
+testSameAA("ATAACAAACAGC","ATCACCAATAGT")
+
+testSameAA("ATAACAAACAGC","ATCACCAATAGT",True)
+
+testSameAA("ATAACAAACAGC","ATCACCAAAAGT",True)
+```
+
+## Lists as Arguments
+
+Using a list as an argument for a function requires some extra thought. The value that's actually passed to the function when you include the list as an argument is the list's position in memory. This is called "passing by reference" and makes things a lot faster, because a program doesn't have to make a separate copy of all the values in the list to use inside the function. However, it means that **if you alter the list inside the function, its value will also be altered outside the function**.
+
+```
+myList = [1,2,3]
+
+def addToList(listToModify,thingToAdd):
+    """An example of passing a list as a function argument."""
+    
+    listToModify.append(thingToAdd)
+    
+print(myList)
+addToList(myList,"dog")
+print(myList)
+```
+
+Standard variables, like integers and floats, do not behave this way. Instead, they are "passed by value". That means if you alter the corresponding variable inside the function, the original variable remains unchanged.
+
+```
+myNum = 2
+
+def addToNum(num):
+    num = num + 2
+    print(num)
+    
+addToNum(myNum)
+print(myNum)
+```
+
+
+## Additional Resources
+
+- [Python Documentation on Defining Functions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)
+
